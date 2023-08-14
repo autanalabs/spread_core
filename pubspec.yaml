@@ -1,6 +1,6 @@
 name: spread_core
 description: Easiest to implement state management for Dart. Use any primitive, enum, type or entity as state. Support state event multicasting
-version: 0.0.5
+version: 0.0.6
 repository: https://github.com/autanalabs/spread_core
 
 environment:

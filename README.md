@@ -23,7 +23,7 @@ Include the library in your pubspec.yaml:
 ```yaml
 
 dependencies:
-   spread_core: ^0.0.5
+   spread_core: ^0.0.6
 ```
 
 #### Then run:
