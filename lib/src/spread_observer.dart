@@ -1,4 +1,3 @@
-
 import 'spread_state.dart';
 
 /// An abstract class named `SpreadObserver` designed for observing state changes of type `T`.
@@ -10,7 +9,6 @@ import 'spread_state.dart';
 /// Generic Type:
 ///   - `T`: The type of state this observer is interested in.
 abstract class SpreadObserver<T> {
-
   /// Registers the observer to listen to state changes of type `T`.
   ///
   /// This method subscribes the observer to the `SpreadState`, allowing it to receive updates

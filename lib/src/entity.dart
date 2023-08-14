@@ -1,4 +1,3 @@
-
 /// An abstract class representing a generic entity.
 ///
 /// This class serves as a foundation for other entities requiring a unique identifier.

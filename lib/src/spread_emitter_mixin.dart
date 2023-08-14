@@ -1,4 +1,3 @@
-
 import 'spread_state.dart';
 import 'entity.dart';
 
@@ -7,7 +6,6 @@ import 'entity.dart';
 /// This mixin provides methods to emit states in various ways - by type, by a named identifier,
 /// or based on an entity. It interacts with the `SpreadState` to dispatch these emitted states.
 mixin StateEmitter {
-
   /// Emits a state of type `T`.
   ///
   /// This method is used to send a specific state type to the `SpreadState`.

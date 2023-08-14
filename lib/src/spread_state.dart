@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'package:spread_core/src/entity.dart';
 
@@ -8,7 +7,6 @@ import 'package:spread_core/src/entity.dart';
 /// management. States can be stored based on type, name, or associated entities.
 /// It also offers subscription mechanisms to listen to state changes.
 class SpreadState {
-
   static final SpreadState _singleton = SpreadState._internal();
   late final Map<String, dynamic> _root;
   late final Map<String, List<StreamController<dynamic>>> _listeners;
@@ -86,7 +84,8 @@ class SpreadState {
   }
 
   /// Subscribes to state changes of a specific name.
-  Future<Subscription> subscribeNamed(String stateName, void Function(dynamic) onChange) async {
+  Future<Subscription> subscribeNamed(
+      String stateName, void Function(dynamic) onChange) async {
     final list = _listeners[stateName] ?? [];
     final controller = StreamController<dynamic>();
     controller.stream.listen(onChange);
@@ -96,8 +95,10 @@ class SpreadState {
   }
 
   /// Subscribes to state changes based on an entity.
-  Future<Subscription> subscribeEntity<T extends Entity>(T entity, void Function(T) onChange) async {
-    final stateName = 'entity:${entity.runtimeType.toString()}#${entity.entityId}';
+  Future<Subscription> subscribeEntity<T extends Entity>(
+      T entity, void Function(T) onChange) async {
+    final stateName =
+        'entity:${entity.runtimeType.toString()}#${entity.entityId}';
     final list = _listeners[stateName] ?? [];
     final controller = StreamController<T>();
     controller.stream.listen(onChange);
@@ -105,7 +106,6 @@ class SpreadState {
     _listeners.putIfAbsent(stateName, () => list);
     return Subscription._internal(stateName, controller);
   }
-
 
   void _unSubscribe(Subscription subscription) async {
     final list = _listeners[subscription._stateName];
@@ -128,11 +128,11 @@ class Subscription {
   final StreamController<dynamic> _controller;
 
   Subscription._internal(String stateName, StreamController<dynamic> controller)
-      : _controller = controller, _stateName = stateName;
+      : _controller = controller,
+        _stateName = stateName;
 
   /// Unsubscribes from state change notifications.
   void unSubscribe() async {
     SpreadState()._unSubscribe(this);
   }
 }
-
